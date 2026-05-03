@@ -26,7 +26,10 @@ function App() {
         </div>
 
         <CardPH/>
-        <footer className="navbar navbar-dark bg-success fixed-bottom">
+        <footer
+  className="navbar navbar-dark fixed-bottom"
+  style={{ backgroundColor: "#026102" }}
+>
   <div className="container-fluid justify-content-center">
     <span className="navbar-text fw-bold text-white">
       
