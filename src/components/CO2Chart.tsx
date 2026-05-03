@@ -47,7 +47,7 @@ function CO2Chart() {
       <h4 className="text-center mb-4">Historial de CO₂</h4>
 
       <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={data}>
+       <LineChart data={[...data].reverse()}>
           <CartesianGrid strokeDasharray="3 3" stroke="#335" />
           <XAxis dataKey="time" stroke="#fff" />
           <YAxis stroke="#fff" />

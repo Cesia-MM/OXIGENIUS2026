@@ -48,12 +48,8 @@ function App() {
         </div>
 
         <CardPH/>
+
         
-        <CardBody
-          title="Oxigenius"
-          subtitle="Biofiltro"
-          text="El texto"
-        />
       </div>
     </>
   );
