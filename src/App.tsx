@@ -1,6 +1,6 @@
 
 import CO2Chart from "./components/CO2Chart";
-import { CardBody } from "./components/Card";
+
 import CardPH from "./components/CardPH";
 
 function App() {
