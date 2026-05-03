@@ -20,12 +20,20 @@ function App() {
       </nav>
 
       {/* CONTENIDO (FUERA DEL NAV) */}
-      <div style={{ marginTop: "70px" }}>
+      <div style={{ marginTop: "70px",marginBottom: "70px"  }}>
         <div className="container mt-4">
           <CO2Chart />
         </div>
 
         <CardPH/>
+        <footer className="navbar navbar-dark bg-success fixed-bottom">
+  <div className="container-fluid justify-content-center">
+    <span className="navbar-text fw-bold text-white">
+      
+    </span>
+  </div>
+</footer>
+``
 
         
       </div>
