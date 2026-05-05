@@ -28,12 +28,12 @@ function CO2Chart() {
           //  Si el ESP32 aún manda {} no hace nada
           if (json.mqEntrada == null || json.mqSalida == null) return;
 
-          const time = new Date().toLocaleTimeString("es-MX", {
-            hour: "2-digit",
-            minute :"numeric",
-            second: "2-digit"
-          });
-
+        const now = new Date();
+    const time = new Date().toLocaleTimeString("es-MX", {
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+});
           setData((prev) => [
             ...prev.slice(-9), // mantiene solo los últimos 10 puntos
             {
@@ -50,30 +50,47 @@ function CO2Chart() {
 
     return () => clearInterval(interval);
   }, []);
+  const lastTwoTicks = data.slice(-2).map((d) => d.time);
+
 
   return (
     <div
-      className="p-4 rounded shadow"
-      style={{ background: "#0d2a56", color: "white" }}
-    >
+  className="p-4 shadow w-100"
+  style={{
+    background: "#0d2a56",
+    color: "white",
+    borderRadius: "12px",
+    margin: "0 auto",
+  }}
+>
       <h4 className="text-center mb-4">Historial de CO₂</h4>
 
       <ResponsiveContainer width="100%" height={300}>
         {/*  Lo más reciente a la izquierda */}
-        <LineChart data={[...data].reverse()}>
+       <LineChart
+       data={[...data].reverse()}
+        margin={{ top: 20, right: 20, left: 0, bottom: 30 }}
+       >
           <CartesianGrid strokeDasharray="3 3" stroke="#335" />
 
           <XAxis
-          dataKey="time"
-        stroke="#fff"
-          interval={Math.max(data.length - 2, 0)}
-          />
+  dataKey="time"
+  stroke="#fff"
+  ticks={lastTwoTicks}
+  allowDuplicatedCategory={false}
+  tickMargin={6}
+  tickFormatter={(value) => value.slice(0, 8)}  
+/>
+
 
 
           <YAxis
-            stroke="#fff"
-            label={{ value: "ppm CO₂", angle: -90, position: "insideLeft" }}
-          />
+  stroke="#fff"
+  width={45}
+  domain={[0, 1000]}
+  
+/>
+
 
           <Tooltip />
           <Legend />
