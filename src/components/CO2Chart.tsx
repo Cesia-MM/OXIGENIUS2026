@@ -81,11 +81,16 @@ function CO2Chart() {
   tickMargin={6}
   tickFormatter={(value) => value.slice(0, 8)}  
 />
+
+
+
           <YAxis
   stroke="#fff"
   width={45}
   domain={[0, 1000]}
+  
 />
+
           <Tooltip />
           <Legend />
 
