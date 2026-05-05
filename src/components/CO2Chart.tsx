@@ -30,7 +30,8 @@ function CO2Chart() {
 
           const time = new Date().toLocaleTimeString("es-MX", {
             hour: "2-digit",
-            minute: "2-digit",
+            minute :"numeric",
+            second: "2-digit"
           });
 
           setData((prev) => [
@@ -63,12 +64,11 @@ function CO2Chart() {
           <CartesianGrid strokeDasharray="3 3" stroke="#335" />
 
           <XAxis
-            dataKey="time"
-            stroke="#fff"
-            interval={0}
-            minTickGap={20}
-            allowDuplicatedCategory={false}
+          dataKey="time"
+        stroke="#fff"
+          interval={Math.max(data.length - 2, 0)}
           />
+
 
           <YAxis
             stroke="#fff"
