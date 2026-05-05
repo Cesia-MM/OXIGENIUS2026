@@ -45,7 +45,7 @@ function CO2Chart() {
         .catch((err) =>
           console.error("Error leyendo datos del ESP32:", err)
         );
-    }, 3000); // se actualiza cada 3 segundos
+    }, 10000); // se actualiza cada 10 segundos
 
     return () => clearInterval(interval);
   }, []);
@@ -65,7 +65,8 @@ function CO2Chart() {
           <XAxis
             dataKey="time"
             stroke="#fff"
-            interval={1}
+            interval={0}
+            minTickGap={20}
             allowDuplicatedCategory={false}
           />
 
